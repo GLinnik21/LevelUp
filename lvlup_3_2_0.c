@@ -21,7 +21,7 @@ Number func(int a, int b) {
     temp.dif = a - b;
     temp.mult = a * b;
     if (b == 0) {
-        temp.errMsg = "Error. Devision by 0!";
+        temp.errMsg = "Error. Division by 0!";
     } else {
         temp.errMsg = NULL;
         temp.dev = ((float)a) / ((float)b);
