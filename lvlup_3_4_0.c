@@ -38,8 +38,11 @@ int main() {
     dictionary[9].english = "Experience";
     dictionary[9].russian = "Опыт";
 
-    dictionary[0].english = "Remainder";
-    dictionary[0].russian = "Напоминание";
+    dictionary[10].english = "Remainder";
+    dictionary[10].russian = "Напоминание";
+
+    dictionary[11].english = "File";
+    dictionary[11].russian = "Файл";
 
 
     return 0;
