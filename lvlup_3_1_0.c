@@ -50,7 +50,7 @@ User copyUser(User user) {
 }
 
 User copyUser2(User* dest, User* src) {
-    *src = *dest;
+    *dest = *src;
     return *src;
 }
 
