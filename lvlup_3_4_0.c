@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <memory.h>
+#include <stdlib.h>
 
 typedef struct {
     const char* russian;
@@ -38,9 +40,49 @@ int main() {
     dictionary[9].english = "Experience";
     dictionary[9].russian = "Опыт";
 
-    dictionary[0].english = "Remainder";
-    dictionary[0].russian = "Напоминание";
+    dictionary[10].english = "Remainder";
+    dictionary[10].russian = "Напоминание";
 
+    dictionary[11].english = "Setting";
+    dictionary[11].russian = "Настройка";
+
+    dictionary[12].english = "Source";
+    dictionary[12].russian = "Источник";
+
+    char* enter = (char*)malloc(sizeof(char) * 256);
+
+    while (1) {
+        printf("Choose the language:\n"
+                "(1)   RUS->ENG\n"
+                "(2)   ENG->RUS\n"
+                "(exit)To exit\n"
+                "Your choice:");
+        scanf("%s", enter);
+
+        if (!strcmp(enter, "exit")) {
+            break;
+        }
+
+        if (!strcmp(enter, "1")) {
+            printf("Введите ваше слово:");
+            scanf("%s", enter);
+            for (int i = 0; i < 13; ++i) {
+                if (!strcmp(dictionary[i].russian, enter)) {
+                    printf("\n%s->%s\n\n", dictionary[i].russian, dictionary[i].english);
+                    break;
+                }
+            }
+        } else {
+            printf("Enter your word:");
+            scanf("%s", enter);
+            for (int i = 0; i < 13; ++i) {
+                if (!strcmp(dictionary[i].english, enter)) {
+                    printf("\n%s->%s\n\n", dictionary[i].english, dictionary[i].russian);
+                    break;
+                }
+            }
+        }
+    }
 
     return 0;
 }
