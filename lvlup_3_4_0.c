@@ -49,7 +49,7 @@ int main() {
     dictionary[12].english = "Source";
     dictionary[12].russian = "Источник";
 
-    char* enter = (char*)malloc(sizeof(char) * 256);
+    char enter[256];
 
     while (1) {
         printf("Choose the language:\n"
@@ -57,7 +57,7 @@ int main() {
                 "(2)   ENG->RUS\n"
                 "(exit)To exit\n"
                 "Your choice:");
-        scanf("%s", enter);
+        fgets(enter, 256, stdin);
 
         if (!strcmp(enter, "exit")) {
             break;
@@ -65,7 +65,7 @@ int main() {
 
         if (!strcmp(enter, "1")) {
             printf("Введите ваше слово:");
-            scanf("%s", enter);
+            fgets(enter, 256, stdin);
             for (int i = 0; i < 13; ++i) {
                 if (!strcmp(dictionary[i].russian, enter)) {
                     printf("\n%s->%s\n\n", dictionary[i].russian, dictionary[i].english);
@@ -74,7 +74,7 @@ int main() {
             }
         } else {
             printf("Enter your word:");
-            scanf("%s", enter);
+            fgets(enter, 256, stdin);
             for (int i = 0; i < 13; ++i) {
                 if (!strcmp(dictionary[i].english, enter)) {
                     printf("\n%s->%s\n\n", dictionary[i].english, dictionary[i].russian);
