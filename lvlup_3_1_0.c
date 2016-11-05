@@ -50,8 +50,9 @@ User copyUser(User user) {
 }
 
 User copyUser2(User* dest, User* src) {
+    User temp = *dest;
     *dest = *src;
-    return *src;
+    return temp;
 }
 
 void printUser() {
