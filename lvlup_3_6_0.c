@@ -2,8 +2,8 @@
 #include <memory.h>
 
 int main() {
-    char stringSrs[256];
-    char stringTrgt[256];
+    char stringSrs[256] = {0};
+    char stringTrgt[256] = {0};
     fgets(stringSrs, 256, stdin);
 
     for (int i = 0, j = strlen(stringSrs) - 2; i < strlen(stringSrs) - 1; ++i, --j) {
