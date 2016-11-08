@@ -1,9 +1,10 @@
 #include <stdio.h>
 #include <memory.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 int main() {
-    char string[256];
+    char string[256] = {0};
     fgets(string, 256, stdin);
 
     //Find tabs
@@ -11,10 +12,14 @@ int main() {
         if (string[i] == '\t')
             string[i] = (char)127;
     }
+
     //Find spaces
+    bool isFirstCharFound = false;
     for (int i = 0; i < strlen(string); ++i) {
-        if (string[i] == ' ' && string[i + 1] == ' ')
+        if ((string[i] == ' ' && string[i + 1] == ' ') || !isFirstCharFound)
             string[i] = (char)127;
+        if (string[i + 1] != ' ')
+            isFirstCharFound = true;
     }
     char* newString = (char*)malloc(sizeof(char) * strlen(string));
 
