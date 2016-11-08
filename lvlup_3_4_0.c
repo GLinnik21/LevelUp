@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <memory.h>
-#include <stdlib.h>
 
 typedef struct {
     const char* russian;
@@ -49,7 +48,7 @@ int main() {
     dictionary[12].english = "Source";
     dictionary[12].russian = "Источник";
 
-    char enter[256];
+    char enter[256] = {0};
 
     while (1) {
         printf("Choose the language:\n"
@@ -59,13 +58,14 @@ int main() {
                 "Your choice:");
         fgets(enter, 256, stdin);
 
-        if (!strcmp(enter, "exit")) {
+        if (!strcmp(enter, "exit\n")) {
             break;
         }
 
-        if (!strcmp(enter, "1")) {
-            printf("Введите ваше слово:");
+        if (!strcmp(enter, "1\n")) {
+            printf("Введите Ваше слово:");
             fgets(enter, 256, stdin);
+            enter[(int)strlen(enter) - 1] = 0;
             for (int i = 0; i < 13; ++i) {
                 if (!strcmp(dictionary[i].russian, enter)) {
                     printf("\n%s->%s\n\n", dictionary[i].russian, dictionary[i].english);
@@ -75,6 +75,7 @@ int main() {
         } else {
             printf("Enter your word:");
             fgets(enter, 256, stdin);
+            enter[(int)strlen(enter) - 1] = 0;
             for (int i = 0; i < 13; ++i) {
                 if (!strcmp(dictionary[i].english, enter)) {
                     printf("\n%s->%s\n\n", dictionary[i].english, dictionary[i].russian);
