@@ -13,7 +13,7 @@ add_executable(LevelUp_3_5_0 lvlup_3_5_0.c)
 
 add_executable(LevelUp_3_6_0 lvlup_3_6_0.c)
 
-add_executable(LevelUp_3_7_0 lvlup_3_8_0.c)
+add_executable(LevelUp_3_7_0 lvlup_3_7_0.c)
 
 add_executable(LevelUp_3_8_0 lvlup_3_8_0.c)
 
