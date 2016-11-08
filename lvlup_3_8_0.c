@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <memory.h>
+#include <stdlib.h>
 
 const char* strcut(char*, const char*);
 
@@ -26,7 +27,7 @@ const char* strcut(char* str, const char* find) {
             }
         }
     }
-    char newStr[128] = {0};
+    char* newStr = (char*)malloc(sizeof(char) * 128);
     for (int i = 0, j = 0; i < strlen(str); ++i) {
         if (str[i] == (char)127) {
             continue;
