@@ -17,11 +17,9 @@ int main() {
     int wordsFound = 0;
     //Walk through other tokens
     while (token != NULL) {
-        if (isalpha(token[0])) {
-            printf("%s\n", token);
-            stringArr[wordsFound] = token;
-            wordsFound++;
-        }
+        printf("%s\n", token);
+        stringArr[wordsFound] = token;
+        wordsFound++;
         token = strtok(NULL, " ");
     }
     printf("Найдено слов: %d", wordsFound);
