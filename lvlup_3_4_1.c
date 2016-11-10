@@ -15,6 +15,12 @@ int main() {
     fgets(str, 256, stdin);
     str[strlen(str) - 1] = 0;
 
+    //Replace \t sign with space
+    for (int i = 0; i < 256; ++i) {
+        if (str[i] == '\t')
+            str[i] = ' ';
+    }
+
     char **stringArr = (char **) malloc(sizeof(void *) * 256);
 
     //Get thr first token
