@@ -33,7 +33,7 @@ int main() {
     while (token != NULL) {
         printf("%s\n", token);
         stringArr[wordsFound] = (char *) malloc(sizeof(char) * strlen(token));
-        stringArr[wordsFound] = token;
+        strcpy(stringArr[wordsFound], token);
 
         //Find max and min string length
         if (strlen(token) > MAX.size) {
