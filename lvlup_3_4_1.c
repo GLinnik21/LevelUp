@@ -11,7 +11,7 @@ void swap(char **, char **);
 
 int main() {
     char str[256] = {0};
-    printf("Введите строку для нахождения количесва слов: ");
+    printf("Введите строку: ");
     fgets(str, 256, stdin);
     str[strlen(str) - 1] = 0;
 
@@ -21,7 +21,7 @@ int main() {
             str[i] = ' ';
     }
 
-    char **stringArr = (char **) malloc(sizeof(void *) * 256);
+    char *stringArr[256];
 
     //Get thr first token
     char *token = strtok(str, " ");
@@ -32,6 +32,7 @@ int main() {
     //Walk through other tokens
     while (token != NULL) {
         printf("%s\n", token);
+        stringArr[wordsFound] = (char *) malloc(sizeof(char) * strlen(token));
         stringArr[wordsFound] = token;
 
         //Find max and min string length

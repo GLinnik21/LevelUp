@@ -23,12 +23,16 @@ int main() {
     int wordsFound = 0;
     //Walk through other tokens
     while (token != NULL) {
-        printf("%s\n", token);
         stringArr[wordsFound] = (char *) malloc(sizeof(char) * strlen(token));
         stringArr[wordsFound] = token;
         wordsFound++;
         token = strtok(NULL, " ");
     }
-    printf("Найдено слов: %d", wordsFound);
+    printf("Найдено слов: %d\n", wordsFound);
+
+    printf("Найденные слова:\n");
+    for (int i = 0; i < wordsFound; ++i) {
+        printf("%s\n", stringArr[i]);
+    }
     return 0;
 }

@@ -8,7 +8,7 @@ void swap(char **, char **);
 
 int main() {
     char str[256] = {0};
-    printf("Введите строку для нахождения количесва слов: ");
+    printf("Введите строку для сортировки слов в алфавитном порядке: ");
     fgets(str, 256, stdin);
     str[strlen(str) - 1] = 0;
 
@@ -26,6 +26,7 @@ int main() {
     int wordsFound = 0;
     //Walk through other tokens
     while (token != NULL) {
+        stringArr[wordsFound] = (char *) malloc(sizeof(char) * strlen(token));
         stringArr[wordsFound] = token;
         wordsFound++;
         token = strtok(NULL, " ");
