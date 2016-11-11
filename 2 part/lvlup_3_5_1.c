@@ -33,7 +33,7 @@ int main() {
         }
         if (add) {
             stringArr[wordsFound] = (char *) malloc(sizeof(char) * strlen(token));
-            stringArr[wordsFound] = token;
+            strcpy(stringArr[wordsFound], token);
             wordsFound++;
             symbolCount += strlen(token) + 1;//+1 to allocate memory for ' ' sign
         }
