@@ -32,7 +32,7 @@ int main() {
     //Walk through other tokens
     while (token != NULL) {
         printf("%s\n", token);
-        stringArr[wordsFound] = (char *) malloc(sizeof(char) * strlen(token));
+        stringArr[wordsFound] = (char *) malloc(sizeof(char) * (strlen(token) + 1));
         strcpy(stringArr[wordsFound], token);
 
         //Find max and min string length

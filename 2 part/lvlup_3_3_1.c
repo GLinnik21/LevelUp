@@ -26,7 +26,7 @@ int main() {
     int wordsFound = 0;
     //Walk through other tokens
     while (token != NULL) {
-        stringArr[wordsFound] = (char *) malloc(sizeof(char) * strlen(token));
+        stringArr[wordsFound] = (char *) malloc(sizeof(char) * (strlen(token) + 1));
         strcpy(stringArr[wordsFound], token);
         wordsFound++;
         token = strtok(NULL, " ");

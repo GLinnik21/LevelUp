@@ -34,3 +34,5 @@ add_executable(LevelUp_3_5_1 "2 part/lvlup_3_5_1.c")
 add_executable(LevelUp_3_6_1 "2 part/lvlup_3_6_1.c")
 
 add_executable(LevelUp_3_7_1 "2 part/lvlup_3_7_1.c")
+
+add_executable(Spiral spiral.c)
