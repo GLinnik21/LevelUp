@@ -10,51 +10,51 @@ typedef struct Coordinates {
 void swap(int *, int *);
 
 int main() {
-    int N;
+    int N, M;
 
     printf("Введите размерность матрицы: ");
-    scanf("%d", &N);
+    scanf("%d%d", &N, &M);
 
     srand(time(0));
-    int **array = (int **) malloc(sizeof(int *) * N);
-    for (int i = 0; i < N; ++i) {
+    int **array = (int **) malloc(sizeof(int *) * M);
+    for (int i = 0; i < M; ++i) {
         array[i] = (int *) malloc(sizeof(int) * N);
         for (int j = 0; j < N; ++j) {
             array[i][j] = rand() % 9 + 1;
         }
     }
 
-    Coordinates *coordinates = (Coordinates *) malloc(sizeof(Coordinates) * N * N);
+    Coordinates *coordinates = (Coordinates *) malloc(sizeof(Coordinates) * N * M);
 
-    int iMin = 0, iMax = N - 1, jMin = 0, jMax = N - 1;
+    int iMin = 0, iMax = M - 1, jMin = 0, jMax = N - 1;
 
-    for (int k = 0; k < N * N;) {
-        for (int j = jMin; j <= jMax && k < N * N; ++j, ++k) {
+    for (int k = 0; k < M * N;) {
+        for (int j = jMin; j <= jMax && k < M * N; ++j, ++k) {
             coordinates[k].i = iMin;
             coordinates[k].j = j;
         }
         iMin++;
 
-        for (int i = iMin; i <= iMax && k < N * N; ++i, ++k) {
+        for (int i = iMin; i <= iMax && k < M * N; ++i, ++k) {
             coordinates[k].i = i;
             coordinates[k].j = jMax;
         }
         jMax--;
 
-        for (int j = jMax; j >= jMin && k < N * N; --j, ++k) {
+        for (int j = jMax; j >= jMin && k < M * N; --j, ++k) {
             coordinates[k].i = iMax;
             coordinates[k].j = j;
         }
         iMax--;
 
-        for (int i = iMax; i >= iMin && k < N * N; --i, ++k) {
+        for (int i = iMax; i >= iMin && k < M * N; --i, ++k) {
             coordinates[k].i = i;
             coordinates[k].j = jMin;
         }
         jMin++;
     }
 
-    for (int i = 0; i < N; ++i) {
+    for (int i = 0; i < M; ++i) {
         for (int j = 0; j < N; ++j) {
             printf("%d ", array[i][j]);
         }
@@ -63,7 +63,7 @@ int main() {
 
     printf("\n");
 
-    int n = N * N;
+    int n = N * M;
     bool swapped = false;
     do {
         swapped = false;
@@ -76,7 +76,7 @@ int main() {
         n--;
     } while (swapped);
 
-    for (int i = 0; i < N; ++i) {
+    for (int i = 0; i < M; ++i) {
         for (int j = 0; j < N; ++j) {
             printf("%d ", array[i][j]);
         }
