@@ -50,7 +50,7 @@ int watch(Queqe *queqe) {
 }
 
 void printQueqe(Queqe *queqe) {
-    if (queqe->next == NULL)
+    if (queqe->start->next == NULL)
         return;
     queqe = (queqe->start)->next;
     while (1) {
