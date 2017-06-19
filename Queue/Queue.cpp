@@ -38,9 +38,10 @@ int take(Queqe **queqe) {
     assert(*queqe != (*queqe)->start);
 
     int value = (((*queqe)->start)->next)->value;
-    (*queqe)->start = ((*queqe)->start)->next;
-    free((*queqe)->start);
-
+    Queqe *toDelete = (*queqe)->start->next;
+    (*queqe)->start = ((*queqe)->start)->next->next;
+    free(toDelete);
+    
     return value;
 }
 
